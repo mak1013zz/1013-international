@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ten13 International | Solar Energy Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f7f9fc;
+      color:#222;
+      line-height:1.6;
+    }
+
+    header{
+      background:
+      linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+      url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1600&auto=format&fit=crop')
+      center/cover no-repeat;
+
+      height:100vh;
+      color:white;
+      display:flex;
+      flex-direction:column;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 8%;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:700;
+      color:#ffcc00;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ffcc00;
+    }
+
+    .hero{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:850px;
+    }
+
+    .hero h1{
+      font-size:65px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      margin-bottom:35px;
+      color:#f1f1f1;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 40px;
+      background:#ffcc00;
+      color:#111;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#666;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:50px;
+      align-items:center;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:white;
+      padding:35px;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:0 5px 20px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .icon{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+    }
+
+    .card p{
+      color:#666;
+      font-size:15px;
+    }
+
+    .contact-box{
+      background:white;
+      border-radius:25px;
+      padding:50px;
+      box-shadow:0 5px 25px rgba(0,0,0,0.08);
+
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .contact-item h3{
+      margin-bottom:10px;
+    }
+
+    .contact-item p{
+      color:#666;
+    }
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    /* QUOTE PAGE */
+
+    .quote-page{
+      min-height:100vh;
+      background:#f5f7fb;
+      padding:80px 20px;
+      display:none;
+    }
+
+    .quote-container{
+      width:100%;
+      max-width:750px;
+      margin:auto;
+      background:white;
+      padding:50px;
+      border-radius:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .quote-container h1{
+      text-align:center;
+      margin-bottom:10px;
+      font-size:42px;
+    }
+
+    .quote-container p{
+      text-align:center;
+      color:#666;
+      margin-bottom:40px;
+    }
+
+    .input-group{
+      margin-bottom:20px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:500;
+    }
+
+    .input-group input,
+    .input-group textarea{
+      width:100%;
+      padding:16px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      font-size:16px;
+      font-family:'Poppins',sans-serif;
+      outline:none;
+      transition:0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus{
+      border-color:#ffcc00;
+      box-shadow:0 0 10px rgba(255,204,0,0.3);
+    }
+
+    textarea{
+      resize:none;
+    }
+
+    .submit-btn{
+      width:100%;
+      padding:16px;
+      background:#ffcc00;
+      border:none;
+      border-radius:50px;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .submit-btn:hover{
+      background:#111;
+      color:white;
+    }
+
+    .back-btn{
+      display:block;
+      text-align:center;
+      margin-top:25px;
+      color:#666;
+      text-decoration:none;
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .quote-container{
+        padding:30px;
+      }
+
+      .quote-container h1{
+        font-size:32px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HOME PAGE -->
+
+  <div id="homePage">
+
+    <header>
+
+      <nav>
+
+        <div class="logo">TEN13</div>
+
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+      </nav>
+
+      <div class="hero">
+
+        <div class="hero-content">
+
+          <h1>Powering The Future With Solar Energy</h1>
+
+          <p>
+            Ten13 International provides reliable and efficient
+            solar panel solutions for homes, offices, and industries.
+          </p>
+
+          <a href="#" class="btn" onclick="openQuotePage()">
+            Get A Quote
+          </a>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>Clean Energy • Reliable Solutions • Sustainable Future</p>
+      </div>
+
+      <div class="about">
+
+        <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=80&w=1200&auto=format&fit=crop" alt="Solar Panels">
+
+        <div>
+
+          <h2 style="margin-bottom:20px;">
+            Trusted Solar Energy Experts
+          </h2>
+
+          <p>
+            Ten13 International specializes in premium solar panel systems
+            designed to reduce electricity costs and create a cleaner future.
+          </p>
+
+          <br>
+
+          <p>
+            We offer solar consultation, installation,
+            maintenance, and long-term energy solutions
+            tailored to your requirements.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Complete Solar Energy Solutions</p>
+      </div>
+
+      <div class="services">
+
+        <div class="card">
+          <div class="icon">☀️</div>
+          <h3>Solar Panels</h3>
+          <p>
+            High-performance solar panel systems
+            built for maximum efficiency.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔋</div>
+          <h3>Energy Storage</h3>
+          <p>
+            Reliable battery systems that store
+            energy for continuous power supply.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>Commercial Solutions</h3>
+          <p>
+            Smart energy systems for offices,
+            factories, and commercial buildings.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Installation & Support</h3>
+          <p>
+            Professional installation and
+            long-term maintenance support.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you</p>
+      </div>
+
+      <div class="contact-box">
+
+        <div class="contact-item">
+          <h3>📞 Phone</h3>
+          <p>+60 16 8050264</p>
+        </div>
+
+        <div class="contact-item">
+          <h3>✉️ Email</h3>
+          <p>info@ten13.com.my</p>
+        </div>
+
+        <div class="contact-item">
+          <h3>📍 Location</h3>
+          <p>
+            No. 1, Jalan MJ/3, Batu 7,
+            Old Klang Road,
+            Taman Medan Maju Jaya,
+            46000 Petaling Jaya, Malaysia
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <h3>🕒 Working Hours</h3>
+          <p>Mon – Fri : 9AM to 6PM</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      <p>© 2026 Ten13 International. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- QUOTE PAGE -->
+
+  <div class="quote-page" id="quotePage">
+
+    <div class="quote-container">
+
+      <h1>Get A Quote</h1>
+
+      <p>
+        Fill out the form below and our team will contact you shortly.
+      </p>
+
+      <form>
+
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="input-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="Enter your phone number" required>
+        </div>
+
+        <div class="input-group">
+          <label>Home / Business Address</label>
+          <input type="text" placeholder="Enter your address" required>
+        </div>
+
+        <div class="input-group">
+          <label>Property Type</label>
+          <input type="text" placeholder="House, Office, Factory, etc.">
+        </div>
+
+        <div class="input-group">
+          <label>Additional Information</label>
+
+          <textarea rows="6"
+          placeholder="Tell us about your solar requirements"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Submit Quote Request
+        </button>
+
+      </form>
+
+      <a href="#" class="back-btn" onclick="goBackHome()">
+        ← Back To Homepage
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function openQuotePage(){
+
+      document.getElementById("homePage").style.display = "none";
+
+      document.getElementById("quotePage").style.display = "block";
+
+      window.scrollTo(0,0);
+    }
+
+    function goBackHome(){
+
+      document.getElementById("quotePage").style.display = "none";
+
+      document.getElementById("homePage").style.display = "block";
+
+      window.scrollTo(0,0);
+    }
+
+  </script>
+
+</body>
+</html>
